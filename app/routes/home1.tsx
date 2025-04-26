@@ -1,4 +1,3 @@
-import QuestionMarkIcon from "~/icons/QuestionMarkIcon";
 import type { Route } from "./+types/home1";
 import { ButtonWithIcon } from "~/components/ButtonWithIcon/ButtonWithIcon";
 
@@ -9,7 +8,7 @@ export function meta({ }: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="bg-[#1b1231] min-h-screen">
+    <div className="center-align bg-[#1b1231] min-h-screen">
       <div className="fixed top-0 left-0 w-full z-50">
         <img
           src="/menu-bar.png"
@@ -24,28 +23,27 @@ export default function Home() {
         </h2>
       </div>
       <p></p>
-      <div className="flex flex-row items-start gap-8 pt-20 p-4 container mx-auto">
+      <div className="flex flex-row items-start p-4 container mx-auto">
         {Sending({
           name: "Messi",
           league: "La Liga",
-          picturePath: "barcelona_getafe.png",
+          picturePath: "app/assets/barcelona_getafe.png",
         })}
         {Sending({
           name: "Messi",
           league: "La Liga",
-          picturePath: "barcelona_getafe.png",
+          picturePath: "app/assets/barcelona_getafe.png",
         })}
         {Sending({
           name: "Messi",
           league: "La Liga",
-          picturePath: "barcelona_getafe.png",
+          picturePath: "app/assets/barcelona_getafe.png",
         })}
       </div>
     </div>
   );
 }
 
-// Define the SendingProps type
 type SendingProps = {
   name: string;
   league: string;
@@ -58,7 +56,6 @@ export function Sending({ name, league, picturePath }: SendingProps) {
       <ButtonWithIcon
         picturePath={picturePath}
         alt={`Start ${name}‑sendingen`}
-        size="w-full h-40 sm:h-48 lg:h-56" // responsiv høyde
         onClick={() => console.log("Play", name)}
       />
       <h1 className="mt-3 text-lg font-semibold">{name}</h1>
