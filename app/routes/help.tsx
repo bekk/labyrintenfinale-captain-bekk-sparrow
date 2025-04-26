@@ -185,7 +185,7 @@ export default function Help() {
               <img
                 src={commentatorImages[commentator.name]}
                 alt={commentator.name}
-                className="w-40 h-48 object-cover rounded-md"
+                className=" h-48 w-50object-cover rounded-md"
               />
             )}
           </button>
