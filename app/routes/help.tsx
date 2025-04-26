@@ -78,19 +78,48 @@ export default function Help() {
 
   const commentators: Commentator[] = [
     { name: "Oscar Westerlin", audioSrc: norwegianAudio },
-    { name: "John Smirthuhuy", audioSrc: englishAudio },
-    { name: "John Smith", audioSrc: englishAudio },
+    { name: "Fetisha", audioSrc: englishAudio },
+    { name: "Peter", audioSrc: englishAudio },
     { name: "John Smith", audioSrc: norwegianAudio },
-    { name: "John Smith", audioSrc: englishAudio },
-    { name: "John Smith", audioSrc: englishAudio },
-    { name: "Oscar Westerlin", audioSrc: norwegianAudio },
-    { name: "John Smirthuhuy", audioSrc: englishAudio },
-    { name: "John Smith", audioSrc: englishAudio },
-    { name: "John Smith", audioSrc: norwegianAudio },
-    { name: "John Smith", audioSrc: englishAudio },
-    { name: "John Smith", audioSrc: englishAudio },
+    { name: "John Smith3", audioSrc: norwegianAudio },
+
+    { name: "John Smith1", audioSrc: norwegianAudio },
+
+    { name: "John Smith2", audioSrc: norwegianAudio },
+
+    { name: "John Smith22", audioSrc: norwegianAudio },
+
+    { name: "John Smith11", audioSrc: norwegianAudio },
+    { name: "John Smith33", audioSrc: norwegianAudio },
+
 
   ];
+  
+  const commentatorImages: Record<string, string> = {
+    "Oscar Westerlin": "/Oscar.png",
+    "Fetisha": "/Fetisha.png",
+    "Peter": "/Peter.png",
+    "John Smith": "/Peter.png",
+    "John Smith1": "/Peter.png",
+
+    "John Smith2": "/Peter.png",
+
+    "John Smith3": "/Peter.png",
+
+
+
+    "John Smith11": "/Peter.png",
+
+    "John Smith22": "/Peter.png",
+    "John Smit33": "/Peter.png",
+
+
+
+  
+
+
+  };
+  
 
   useEffect(() => {
     const video = videoRef.current;
@@ -128,7 +157,7 @@ export default function Help() {
     
 
         <h1 className="text-5xl font-bold mb-6 text-left">Barcelona - Getafe</h1>
-        <p className="text-lg text-gray-300 max-w-2xl text-left pb-5">
+        <p className="text-lg max-w-2xl text-left pb-5">
           Fotball
         </p>
 
@@ -145,16 +174,26 @@ export default function Help() {
 
         {/* kommentator knappenee */}
         <div className="flex flex-wrap gap-6 justify-center">
-      {commentators.map((commentator) => (
-        <button
-          key={commentator.name}
-          onClick={() => setCurrentCommentator(commentator)}
-          className="flex-none w-60 h-24 bg-[#D8B4F8] hover:bg-purple-700 text-black font-semibold rounded-2xl text-lg flex items-center justify-center text-center h-40 w-50 whitespace-normal break-words overflow-hidden"
-        >
-          {commentator.name}
-        </button>
-      ))}
-    </div>
+        {commentators.map((commentator) => (
+          <button
+            key={commentator.name}
+            onClick={() => setCurrentCommentator(commentator)}
+            className="flex flex-col items-center justify-start w-60 h-72 bg-[#D8B4F8] hover:bg-purple-700 text-black font-bold rounded-2xl text-xl overflow-hidden pt-4"
+          >
+            <span className="mb-2">{commentator.name}</span>
+            {commentatorImages[commentator.name] && (
+              <img
+                src={commentatorImages[commentator.name]}
+                alt={commentator.name}
+                className="w-40 h-48 object-cover rounded-md"
+              />
+            )}
+          </button>
+        ))}
+      </div>
+
+
+
 
 
 
