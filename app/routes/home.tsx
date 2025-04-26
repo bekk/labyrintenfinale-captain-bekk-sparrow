@@ -1,9 +1,10 @@
 import type { Route } from "./+types/home";
-import { ButtonWithIcon } from "~/components/ButtonWithIcon/ButtonWithIcon";
+import { Button } from "~/components/ButtonWithIcon/Button";
 import { NavLink, useNavigate } from "react-router";
 import QuestionMarkIcon from "~/icons/QuestionMarkIcon";
+import homepage from "public/images/homepage.png";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [{ title: "Denne tittelen vises i fanen" }];
 }
 
@@ -12,18 +13,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="pt-16 p-4 container mx-auto">
-        <p> Velkommen! Denne applikasjonen kan dere bruke for å vise frem ideen deres! </p>
-        <NavLink to="/more-info">
-          <a className="text-blue-600 underline hover:text-blue-800">Du kan finne mer info her</a>
-        </NavLink>
-      </div>
-      <div className="absolute right-10 bottom-10">
-        <ButtonWithIcon
-          text="Hjelp"
+      <div className="absolute left-20 bottom-45">
+        <Button
           onClick={() => navigate("/hjelp")}
-          icon={<QuestionMarkIcon />}
         />
+      </div>
+      <div>
+        <img src="/images/homepage.png" alt="Et bilde" />
       </div>
     </>
   );
