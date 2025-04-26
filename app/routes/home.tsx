@@ -1,4 +1,4 @@
-import type { Route } from "./+types/home";
+//import type { Route } from "./+types/home";
 import { NavLink, useNavigate } from "react-router";
 
 import React, { useEffect, useRef, useState } from "react";
