@@ -83,6 +83,12 @@ export default function Help() {
     { name: "John Smith", audioSrc: norwegianAudio },
     { name: "John Smith", audioSrc: englishAudio },
     { name: "John Smith", audioSrc: englishAudio },
+    { name: "Oscar Westerlin", audioSrc: norwegianAudio },
+    { name: "John Smirthuhuy", audioSrc: englishAudio },
+    { name: "John Smith", audioSrc: englishAudio },
+    { name: "John Smith", audioSrc: norwegianAudio },
+    { name: "John Smith", audioSrc: englishAudio },
+    { name: "John Smith", audioSrc: englishAudio },
 
   ];
 
@@ -143,7 +149,7 @@ export default function Help() {
         <button
           key={commentator.name}
           onClick={() => setCurrentCommentator(commentator)}
-          className="flex-none w-60 h-24 bg-[#D8B4F8] hover:bg-purple-700 text-black font-semibold rounded-2xl text-lg flex items-center justify-center text-center whitespace-normal break-words overflow-hidden"
+          className="flex-none w-60 h-24 bg-[#D8B4F8] hover:bg-purple-700 text-black font-semibold rounded-2xl text-lg flex items-center justify-center text-center h-40 w-50 whitespace-normal break-words overflow-hidden"
         >
           {commentator.name}
         </button>
