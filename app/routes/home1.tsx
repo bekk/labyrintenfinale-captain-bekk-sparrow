@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import type { Route } from "./+types/home1";
 import { ButtonWithIcon } from "~/components/ButtonWithIcon/ButtonWithIcon";
 
@@ -25,19 +26,14 @@ export default function Home() {
       <p></p>
       <div className="flex flex-row items-start p-4 container mx-auto">
         {Sending({
-          name: "Messi",
+          name: "Barcelona - Getafe",
           league: "La Liga",
           picturePath: "app/assets/barcelona_getafe.png",
         })}
         {Sending({
-          name: "Messi",
-          league: "La Liga",
-          picturePath: "app/assets/barcelona_getafe.png",
-        })}
-        {Sending({
-          name: "Messi",
-          league: "La Liga",
-          picturePath: "app/assets/barcelona_getafe.png",
+          name: "Sverige - England",
+          league: "Internasjonal",
+          picturePath: "app/assets/sweden_england.png",
         })}
       </div>
     </div>
@@ -51,12 +47,15 @@ type SendingProps = {
 };
 
 export function Sending({ name, league, picturePath }: SendingProps) {
+  let navigate = useNavigate();
   return (
     <div className="flex flex-col items-start text-white w-full">
       <ButtonWithIcon
         picturePath={picturePath}
         alt={`Start ${name}‑sendingen`}
-        onClick={() => console.log("Play", name)}
+        onClick={() =>
+          navigate("/hjelp")
+        }
       />
       <h1 className="mt-3 text-lg font-semibold">{name}</h1>
       <h2 className="text-sm opacity-80">{league}</h2>
