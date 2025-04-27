@@ -113,11 +113,6 @@ export default function Help() {
     "John Smith22": "/Peter.png",
     "John Smit33": "/Peter.png",
 
-
-
-
-
-
   };
 
 
@@ -140,7 +135,6 @@ export default function Help() {
         className="w-full h-auto object-cover"
       />
 
-      {/* videoen */}
       <div className="flex justify-center mt-6">
         <video
           ref={videoRef}
@@ -171,8 +165,6 @@ export default function Help() {
         <p className="text-lg text-white font-bold max-w-2xl text-left pb-5 pt-6">
           Tilgjengelige kommentatorer:
         </p>
-
-        {/* kommentator knappenee */}
         <div className="flex flex-wrap gap-6 justify-center">
           {commentators.map((commentator) => (
             <button
@@ -191,13 +183,6 @@ export default function Help() {
             </button>
           ))}
         </div>
-
-
-
-
-
-
-
         {commentators.map((commentator) => (
           <button
             key={commentator.name}
@@ -216,6 +201,5 @@ export default function Help() {
         ))}
       </div>
     </div>
-    </div >
   );
 }
