@@ -2,8 +2,8 @@ import type { Route } from "./+types/home";
 import { useEffect, useRef, useState } from "react";
 
 import silentVideo from "ankaraVideo.mp4";
-import englishAudio from "AnkaraMessiEnglish.mp3";
-import norwegianAudio from "AnkaraMessiCatalan.mp3";
+import england from "AnkaraMessiEnglish.mp3";
+import catalan from "AnkaraMessiCatalan.mp3";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Hjelp!" }];
@@ -77,41 +77,34 @@ export default function Help() {
   const [currentCommentator, setCurrentCommentator] = useState<Commentator | null>(null);
 
   const commentators: Commentator[] = [
-    { name: "Oscar Westerlin", audioSrc: norwegianAudio },
-    { name: "Fetisha", audioSrc: englishAudio },
-    { name: "Peter", audioSrc: englishAudio },
-    { name: "John Smith", audioSrc: norwegianAudio },
-    { name: "John Smith3", audioSrc: norwegianAudio },
+    { name: "English commentator", audioSrc: england },
 
-    { name: "John Smith1", audioSrc: norwegianAudio },
 
-    { name: "John Smith2", audioSrc: norwegianAudio },
+    { name: "Catalan commentator", audioSrc: catalan },
+    { name: "Oscar Westerlin", audioSrc: catalan },
+    { name: "Fetisha", audioSrc: england },
+    { name: "Peter", audioSrc: england },
+    
 
-    { name: "John Smith22", audioSrc: norwegianAudio },
-
-    { name: "John Smith11", audioSrc: norwegianAudio },
-    { name: "John Smith33", audioSrc: norwegianAudio },
+    { name: "Minecraft villager", audioSrc: catalan },
+    { name: "Fantorangen", audioSrc: catalan },
 
 
   ];
   
   const commentatorImages: Record<string, string> = {
+    "English commentator": "/England.png",
+
+    "Catalan commentator": "/Catalan.png",
     "Oscar Westerlin": "/Oscar.png",
     "Fetisha": "/Fetisha.png",
     "Peter": "/Peter.png",
-    "John Smith": "/Peter.png",
-    "John Smith1": "/Peter.png",
+   
 
-    "John Smith2": "/Peter.png",
+    "Minecraft villager": "/Minecraft.png",
 
-    "John Smith3": "/Peter.png",
+    "Fantorangen": "/Fantorangen.png",
 
-
-
-    "John Smith11": "/Peter.png",
-
-    "John Smith22": "/Peter.png",
-    "John Smit33": "/Peter.png",
 
 
 
