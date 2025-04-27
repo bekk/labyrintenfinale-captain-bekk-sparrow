@@ -12,7 +12,7 @@ export default function Home() {
     <div className="center-align bg-[#1b1231] min-h-screen">
       <div className="fixed top-0 left-0 w-full z-50">
         <img
-          src="/menu-bar.png"
+          src="/images/menu-bar.png"
           alt="Meny"
           className="w-full h-14 object-cover"
         />
@@ -28,13 +28,13 @@ export default function Home() {
         {Sending({
           name: "Barcelona - Getafe",
           league: "La Liga",
-          picturePath: "app/assets/barcelona_getafe.png",
+          picturePath: "/images/barcelona_getafe.png",
           match: "/barcelona-getafe",
         })}
         {Sending({
           name: "Sverige - England",
           league: "Internasjonal",
-          picturePath: "app/assets/sweden_england.png",
+          picturePath: "/images/sweden_england.png",
           match: "/sverige-england",
         })}
       </div>

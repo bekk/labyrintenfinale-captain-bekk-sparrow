@@ -2,9 +2,9 @@ import type { Route } from "./+types/home1";
 
 import { useEffect, useRef, useState } from "react";
 
-import silentVideo from "app/assets/zlatanVideo.mp4";
-import england from "app/assets/zlatanEnglish.mp3";
-import catalan from "app/assets/AnkaraMessiEnglish.mp3";
+import silentVideo from "/videos/zlatanVideo.mp4";
+import england from "/videos/zlatanEnglish.mp3";
+import swedish from "/videos/zlatan_swedish.mov";
 
 export function meta({ }: Route.MetaArgs) {
   return [{ title: "Sverige - England" }];
@@ -70,6 +70,7 @@ class AudioSyncController {
 type Commentator = {
   name: string;
   audioSrc: string;
+  picturePath: string;
 };
 
 export default function Help() {
@@ -78,37 +79,12 @@ export default function Help() {
 
 
   const commentators: Commentator[] = [
-    { name: "English commentator", audioSrc: england },
-
-
-    { name: "Catalan commentator", audioSrc: catalan },
-    { name: "Oscar Westerlin", audioSrc: catalan },
-    { name: "Fetisha", audioSrc: england },
-    { name: "Peter", audioSrc: england },
-    
-
-    { name: "Minecraft villager", audioSrc: catalan },
-    { name: "Fantorangen", audioSrc: catalan },
-
-
+    { name: "Britisk kommentator", audioSrc: england, picturePath: "/images/England.png" },
+    { name: "Svensk kommentator", audioSrc: swedish, picturePath: "/images/swedish.png" },
+    { name: "Oscar Westerlin", audioSrc: swedish, picturePath: "/images/Oscar.png" },
+    { name: "Fetisha", audioSrc: swedish, picturePath: "/images/Fetisha.png" }
   ];
   const [currentCommentator, setCurrentCommentator] = useState<Commentator>(commentators[0]);
-
-  const commentatorImages: Record<string, string> = {
-    "English commentator": "/England.png",
-
-    "Catalan commentator": "/Catalan.png",
-    "Oscar Westerlin": "/Oscar.png",
-    "Fetisha": "/Fetisha.png",
-    "Peter": "/Peter.png",
-   
-
-    "Minecraft villager": "/Minecraft.png",
-
-    "Fantorangen": "/Fantorangen.png",
-
-  };
-
 
   useEffect(() => {
     const video = videoRef.current;
@@ -124,7 +100,7 @@ export default function Help() {
   return (
     <div className="min-h-screen w-screen bg-gradient-to-b from-[#1a0826] to-[#2c1d3d] text-white flex flex-col">
       <img
-        src="/public/menu-bar.png"
+        src="/images/menu-bar.png"
         alt="Meny"
         className="w-full h-auto object-cover"
       />
@@ -144,42 +120,30 @@ export default function Help() {
 
       <div className="flex flex-col flex-1 justify-center p-8">
 
-
         <h1 className="text-5xl font-bold mb-6 text-left">Barcelona - Getafe</h1>
-        <p className="text-lg max-w-2xl text-left pb-5">
-          Fotball
-        </p>
 
         <p className="text-lg text-white font-bold max-w-2xl text-left pb-5 pt-6">
           Tilgjengelige kommentatorer:
         </p>
-
-        {/* kommentator knappenee */}
         <div className="flex flex-wrap gap-6 justify-center">
           {commentators.map((commentator) => (
             <button
               key={commentator.name}
               onClick={() => setCurrentCommentator(commentator)}
-              className="flex flex-col items-center justify-start w-60 h-72 bg-[#D8B4F8] hover:bg-purple-700 text-black font-bold rounded-2xl text-xl overflow-hidden pt-4"
+              className="flex flex-col items-center justify-between
+                 w-60 h-72 rounded-2xl overflow-hidden pt-4
+                 font-bold text-xl
+                 bg-[#D8B4F8] hover:bg-purple-700 text-black"
             >
               <span className="mb-2">{commentator.name}</span>
-              {commentatorImages[commentator.name] && (
-                <img
-                  src={commentatorImages[commentator.name]}
-                  alt={commentator.name}
-                  className=" h-48 w-50object-cover rounded-md"
-                />
-              )}
+              <img
+                src={commentator.picturePath}
+                alt={commentator.name}
+                className="h-48 w-full object-cover rounded-md"
+              />
             </button>
           ))}
         </div>
-
-
-
-
-
-
-
       </div>
     </div>
   );
