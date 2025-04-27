@@ -105,12 +105,6 @@ export default function Help() {
 
     "Fantorangen": "/Fantorangen.png",
 
-
-
-
-  
-
-
   };
   
 
