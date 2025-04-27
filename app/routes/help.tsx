@@ -104,7 +104,6 @@ export default function Help() {
     "Minecraft villager": "/Minecraft.png",
 
     "Fantorangen": "/Fantorangen.png",
-
   };
   
 
