@@ -29,11 +29,13 @@ export default function Home() {
           name: "Barcelona - Getafe",
           league: "La Liga",
           picturePath: "app/assets/barcelona_getafe.png",
+          match: "/barcelona-getafe",
         })}
         {Sending({
           name: "Sverige - England",
           league: "Internasjonal",
           picturePath: "app/assets/sweden_england.png",
+          match: "/sverige-england",
         })}
       </div>
     </div>
@@ -44,9 +46,10 @@ type SendingProps = {
   name: string;
   league: string;
   picturePath: string;
+  match: string;
 };
 
-export function Sending({ name, league, picturePath }: SendingProps) {
+export function Sending({ name, league, picturePath, match }: SendingProps) {
   let navigate = useNavigate();
   return (
     <div className="flex flex-col items-start text-white w-full">
@@ -54,7 +57,7 @@ export function Sending({ name, league, picturePath }: SendingProps) {
         picturePath={picturePath}
         alt={`Start ${name}‑sendingen`}
         onClick={() =>
-          navigate("/hjelp")
+          navigate(match)
         }
       />
       <h1 className="mt-3 text-lg font-semibold">{name}</h1>

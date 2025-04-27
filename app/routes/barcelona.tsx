@@ -1,12 +1,13 @@
-import type { Route } from "./+types/home";
+import type { Route } from "./+types/home1";
+
 import { useEffect, useRef, useState } from "react";
 
-import silentVideo from "ankaraVideo.mp4";
-import englishAudio from "AnkaraMessiEnglish.mp3";
-import norwegianAudio from "AnkaraMessiCatalan.mp3";
+import silentVideo from "app/assets/ankaraVideo.mp4";
+import englishAudio from "app/assets/AnkaraMessiEnglish.mp3";
+import norwegianAudio from "app/assets/AnkaraMessiCatalan.mp3";
 
 export function meta({ }: Route.MetaArgs) {
-  return [{ title: "Hjelp!" }];
+  return [{ title: "Barcelona - Getafe" }];
 }
 
 class AudioSyncController {
@@ -22,7 +23,7 @@ class AudioSyncController {
     if (this.audio) {
       this.audio.pause();
       this.audio.src = "";
-      this.audio = null;
+      this.audio = null
     }
 
     this.audio = new Audio(src);
@@ -34,7 +35,7 @@ class AudioSyncController {
       this.canPlay(this.audio),
     ]);
     if (!this.video.paused) {
-      this.audio.play().catch(() => {/* autoplay-policy */});
+      this.audio.play().catch(() => {/* autoplay-policy */ });
     }
     this.bind();
   }
@@ -74,7 +75,6 @@ type Commentator = {
 export default function Help() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const controllerRef = useRef<AudioSyncController | null>(null);
-  const [currentCommentator, setCurrentCommentator] = useState<Commentator | null>(null);
 
   const commentators: Commentator[] = [
     { name: "Oscar Westerlin", audioSrc: norwegianAudio },
@@ -91,10 +91,10 @@ export default function Help() {
 
     { name: "John Smith11", audioSrc: norwegianAudio },
     { name: "John Smith33", audioSrc: norwegianAudio },
-
-
   ];
-  
+
+  const [currentCommentator, setCurrentCommentator] = useState<Commentator>(commentators[0]);
+
   const commentatorImages: Record<string, string> = {
     "Oscar Westerlin": "/Oscar.png",
     "Fetisha": "/Fetisha.png",
@@ -115,11 +115,11 @@ export default function Help() {
 
 
 
-  
+
 
 
   };
-  
+
 
   useEffect(() => {
     const video = videoRef.current;
@@ -133,28 +133,28 @@ export default function Help() {
   }, [currentCommentator]);
 
   return (
-<div className="min-h-screen w-screen bg-gradient-to-b from-[#1a0826] to-[#2c1d3d] text-white flex flex-col">
-<img 
-        src="/public/menu-bar.png" 
-        alt="Meny" 
+    <div className="min-h-screen w-screen bg-gradient-to-b from-[#1a0826] to-[#2c1d3d] text-white flex flex-col">
+      <img
+        src="/public/menu-bar.png"
+        alt="Meny"
         className="w-full h-auto object-cover"
       />
 
       {/* videoen */}
       <div className="flex justify-center mt-6">
-      <video
-        ref={videoRef}
-        src={silentVideo}
-        controls
-        playsInline
-        width={1100}
-        height={360}
-        className="rounded-lg shadow"
-      />
-    </div>
+        <video
+          ref={videoRef}
+          src={silentVideo}
+          controls
+          playsInline
+          width={1100}
+          height={360}
+          className="rounded-lg shadow"
+        />
+      </div>
 
       <div className="flex flex-col flex-1 justify-center p-8">
-    
+
 
         <h1 className="text-5xl font-bold mb-6 text-left">Barcelona - Getafe</h1>
         <p className="text-lg max-w-2xl text-left pb-5">
@@ -174,30 +174,23 @@ export default function Help() {
 
         {/* kommentator knappenee */}
         <div className="flex flex-wrap gap-6 justify-center">
-        {commentators.map((commentator) => (
-          <button
-            key={commentator.name}
-            onClick={() => setCurrentCommentator(commentator)}
-            className="flex flex-col items-center justify-start w-60 h-72 bg-[#D8B4F8] hover:bg-purple-700 text-black font-bold rounded-2xl text-xl overflow-hidden pt-4"
-          >
-            <span className="mb-2">{commentator.name}</span>
-            {commentatorImages[commentator.name] && (
-              <img
-                src={commentatorImages[commentator.name]}
-                alt={commentator.name}
-                className=" h-48 w-50object-cover rounded-md"
-              />
-            )}
-          </button>
-        ))}
-      </div>
-
-
-
-
-
-
-
+          {commentators.map((commentator) => (
+            <button
+              key={commentator.name}
+              onClick={() => setCurrentCommentator(commentator)}
+              className="flex flex-col items-center justify-start w-60 h-72 bg-[#D8B4F8] hover:bg-purple-700 text-black font-bold rounded-2xl text-xl overflow-hidden pt-4"
+            >
+              <span className="mb-2">{commentator.name}</span>
+              {commentatorImages[commentator.name] && (
+                <img
+                  src={commentatorImages[commentator.name]}
+                  alt={commentator.name}
+                  className=" h-48 w-50object-cover rounded-md"
+                />
+              )}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
