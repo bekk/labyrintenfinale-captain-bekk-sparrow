@@ -178,7 +178,7 @@ export default function Help() {
             <button
               key={commentator.name}
               onClick={() => setCurrentCommentator(commentator)}
-              className="flex flex-col items-center justify-start w-60 h-72 bg-[#D8B4F8] hover:bg-purple-700 text-black font-bold rounded-2xl text-xl overflow-hidden pt-4"
+              className="flex flex-col items-center justify-between w-60 h-72 bg-[#D8B4F8] hover:bg-purple-700 text-black font-bold rounded-2xl text-xl overflow-hidden pt-4"
             >
               <span className="mb-2">{commentator.name}</span>
               {commentatorImages[commentator.name] && (
@@ -191,7 +191,31 @@ export default function Help() {
             </button>
           ))}
         </div>
+
+
+
+
+
+
+
+        {commentators.map((commentator) => (
+          <button
+            key={commentator.name}
+            onClick={() => setCurrentCommentator(commentator)}
+            className="flex flex-col items-center justify-start w-60 h-72 bg-[#D8B4F8] hover:bg-purple-700 text-black font-bold rounded-2xl text-xl overflow-hidden pt-4"
+          >
+            <span className="mb-2">{commentator.name}</span>
+            {commentatorImages[commentator.name] && (
+              <img
+                src={commentatorImages[commentator.name]}
+                alt={commentator.name}
+                className=" h-48 w-50object-cover rounded-md"
+              />
+            )}
+          </button>
+        ))}
       </div>
     </div>
+    </div >
   );
 }
